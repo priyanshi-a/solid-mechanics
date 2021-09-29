@@ -1,0 +1,40 @@
+body {
+  background-color: AliceBlue;
+  
+  font-size: 16px;
+  
+}
+h3 {color: DarkBlue;}
+p {color: DarkSlateGrey;}
+p:hover {background-color: GhostWhite;}
+
+input[type=button] { 
+  background-color: DodgerBlue;
+  text-decoration: none;
+  
+  font-size: 16px;
+  padding: 20px;
+  cursor: pointer;
+  border: none;
+  border-radius: 20px;
+  color: MidnightBlue;
+}
+
+input[type=button]:active { 
+  background-color: DeepSkyBlue;
+}
+input[type=button]:hover { 
+  background-color: RoyalBlue;
+}
+
+
+
+.radio {
+  width: 50px;
+}
+.question {
+   margin-top:5%;
+}
+.option {
+   margin-top:2%;
+}

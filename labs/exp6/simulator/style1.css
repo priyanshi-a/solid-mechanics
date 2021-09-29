@@ -1,0 +1,192 @@
+#svgPanel{
+  border: 2px solid red;
+  margin: 10px;
+}
+
+.button { 
+  background-color: DodgerBlue;
+  color: MidnightBlue;
+
+  text-decoration: none;
+  font-size: 16px;
+  padding: 8px;
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+h3{
+  margin:5px;
+}
+
+#dlefReading {
+  border-width: 2px;
+  border-style: solid;
+  border-color: red;
+}
+
+
+title{
+
+  background:yellow;
+  padding: 5px;
+  font-size: 20px;
+  color: red;
+  
+}
+
+#Content {
+  border: 1px solid blue;
+  width:100%;
+  
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: flex-start;
+  
+  padding : 1px;
+  padding-bottom : 5px;
+}
+
+.ButtonsDiv {
+  width:max-content;
+}
+
+#simulationBoard {
+  
+  //width:40%;
+  height : 100%;
+  //border: 2px solid green;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#tableDiv {
+
+  min-width: 550px;
+  //height : 100%;
+  //border: 5px solid yellow;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  margin-left: 20px;
+}
+
+#ObsTabDiv {
+  display: block;
+
+  width: 100%;
+}
+
+#VerifyDiv {
+  display: none;
+
+  width: 100%;
+}
+
+#ResultDiv {
+  display: none;
+
+  width: 100%;
+}
+
+#showData {
+  display: none;
+
+  margin-right: 10px;
+}
+
+input[type=number] {
+  width: 60px;
+  height: 25px;
+  text-align: center;
+}
+
+table {
+  font-size : 10px;
+  text-align : center;
+}
+
+span {
+  font-size : 16px;
+}
+
+#popupdiv {
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  margin-right: 10px;
+  margin-left: 20px;
+}
+
+#procedure {
+  font-size: 16px;
+}
+
+#btnDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+#avgDiv {
+  margin-top: 15px;
+  margin-left: 20px;
+}
+
+#instructionsDiv {
+  display: none;
+
+  max-width: 500px;
+  max-height: 470px;
+  margin-left: 30px;
+  margin-right: 10px;
+  padding-right: 20px;
+
+  overflow: auto;
+}
+
+#printDiv {
+
+  position: absolute;
+  top: -8px;
+  right: 10px;
+
+}
+
+ @media print {
+               .no-print {
+                  visibility: hidden;
+               }
+            }
+
+#optionsDiv {
+
+  width: 90%;
+  margin: 5px;
+
+}
+
+#options {
+
+  width: auto;
+  height: 45px;
+  font-size: 18px;
+
+  border: 2px solid black;
+  border-radius: 10px;
+
+  background-color:#e8f6fa;
+
+  padding: 2px;
+
+}

@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="./style1.css">
+	<title>Simulation</title>
+</head>
+<body style="background-color:#e8f6fa;">
+
+	<div id="printDiv">
+		<form >
+			<input 	class="button no-print" 
+							type="button" 
+							onclick="window.print()" 
+							value="Print Observations"/>
+			
+		</form>
+	</div>
+	<center>
+		<h3><u>Compressive Strength of Concrete Block.</u></h3>
+	</center>
+	
+	<div id="Content">
+	
+		<div id="simulationBoard">
+
+			<svg id="svgPanel" height="480" width="700" >
+
+				<path id="CompresserBody" 
+		  		stroke="blue" 
+		  		stroke-width="10" 
+		  		fill="none" >
+		  		<title>Compression Testing Machine</title>	
+		  	</path>
+
+		  	<rect id="upperV"   
+					 fill="rgb(0,0,255)" 
+					 stroke-width="0"
+					 stroke="rgb(0,0,0)">
+					<title>Compression Testing Machine</title>	
+				</rect>
+
+				<rect id="upperH"   
+					 stroke-width="0"
+					 stroke="rgb(0,0,0)" >
+					<title>Compression Testing Machine</title>	
+				</rect>
+
+				<rect id="lowerH"   
+					 stroke-width="0"
+					 stroke="rgb(0,0,0)" >
+					<title>Compression Testing Machine</title>	
+				</rect>
+
+				<rect id="lowerV"   
+					 stroke-width="3"
+					 stroke="rgb(0,0,0)"
+					 fill = "lightblue" >
+					<title>Compression Testing Machine</title>	
+				</rect>
+
+				<rect id="ConcretBlock"   
+					 stroke-width="1"
+					 stroke = "#616161"
+					 fill = "#C5CAE9" >
+					<title> Concret Block ( 150 x 150 )</title>	
+				</rect>
+
+				<polygon id="leftPart"
+		  		stroke-width="1"
+		  		stroke = "#616161" 
+		  		fill="#C5CAE9">
+		  		<title>Broken Parts of Concret Block</title>		
+		  	</polygon>
+
+		  	<polygon id="rightPart" 
+		  		stroke-width="1"
+		  		stroke = "#616161" 
+		  		fill="#C5CAE9">
+		  		<title>Broken Parts of Concret Block</title>		
+		  	</polygon>
+
+		  	<polygon id="controllerB_1" 
+		  		stroke-width="1"
+		  		stroke = "#616161" 
+		  		fill="lightblue">
+		  		<title>Compression Testing Machine</title>		
+		  	</polygon>
+
+		  	<polygon id="controllerB_2" 
+		  		stroke-width="1"
+		  		stroke = "#616161" 
+		  		fill="lightblue">
+		  		<title>Compression Testing Machine</title>		
+		  	</polygon>
+
+		  	<rect id="controllerB_3"   
+					 stroke-width="1"
+					 stroke="rgb(0,0,0)" 
+					 fill = "#90CAF9">
+					<title>Compression Testing Machine</title>	
+				</rect>
+
+				<path id="connection" 
+		  		stroke="blue" 
+		  		stroke-width="8" 
+		  		fill="none" >
+		  		<title>&nbsp;connections&nbsp;</title>	
+		  	</path>
+
+				<rect id="support1"   
+					 fill="rgb(0,0,255)" 
+					 stroke-width="3"
+					 stroke="rgb(0,0,0)" >
+					<title>Compression Testing Machine</title>	
+				</rect>
+
+				<rect id="support2"   
+					 fill="rgb(0,0,255)" 
+					 stroke-width="3"
+					 stroke="rgb(0,0,0)" >
+					<title>Compression Testing Machine</title>	
+				</rect>
+<!-----------------Deflecto Meter--------------------------------->
+				<circle id="meter" 
+					  stroke="black" 
+					  stroke-width="3" 
+					  fill="white" >
+					<title>Meter</title>
+				</circle>
+
+				<text id="dmai1"> 0 </text>
+
+			 	<text id="dmai2"> 40 </text>
+
+			  <text id="dmai3"> 80 </text>
+
+			  <rect id="dlefReadingBorder"
+			  			stroke="black"
+			  			stroke-width = "2" fill="#fff">
+			  	<title>Meter Reading(Load)</title>
+			  </rect>
+
+			  <text id="dlefReading" fill="blue">
+			  	<title>Meter Reading(Load)</title>
+			  	0
+			  </text>
+
+				<line id = "innerNeedleB"
+						fill="black"
+						stroke = "black"
+						stroke-width = "3">
+					<title>Needle of Meter</title>		
+				</line>
+
+				<line id = "innerNeedleR"
+						fill="red"
+						stroke = "red"
+						stroke-width = "3" >
+					<title>Needle of Meter</title>		
+				</line>
+			  
+			  <circle id="innerCircle" 
+					  stroke="black" 
+					  stroke-width="1" 
+					  fill="red" >
+					<title>Meter</title>  	
+				</circle>
+
+<!-----------------------Rotating Wheel---------------------->
+
+				<circle id="wheel" 
+					  stroke="red" 
+					  stroke-width="3" 
+					  fill="none" >
+					<title>Wheel</title>
+				</circle>
+
+				<line id = "wheelSupport1"
+						fill="red"
+						stroke = "red"
+						stroke-width = "3" />
+
+				<line id = "wheelSupport2"
+						fill="red"
+						stroke = "red"
+						stroke-width = "3" />
+
+				<line id = "wheelSupport3"
+						fill="red"
+						stroke = "red"
+						stroke-width = "3" />
+
+				<text id="TrailText" fill="blue">
+			  	<title> Trail Text </title>
+			  </text>
+
+				<line id="BaseLine"  
+					  	stroke="black" 
+					  	stroke-width="3" 
+					  	fill="none" >
+				<title>Base</title>		
+
+			  Sorry, your browser does not support inline SVG.
+			</svg>
+			<div class = "ButtonsDiv">
+				<button id="next2" class="button" > &nbsp;Next&nbsp; </button>
+				<button id="start" class="button" > &nbsp;Start&nbsp; </button>
+		  	<button id="stop" class="button" > &nbsp;Stop&nbsp; </button>
+		  	<button id="reset" class="button" > &nbsp;Reset&nbsp; </button>
+			</div>
+
+		</div>
+		
+		<div id="tableDiv">
+			<center>
+
+				<div id="ObsTabDiv">
+					<h3><u>Observation  Table</u></h3>
+					<b>Trial - 1</b>
+					<table id="obsTable1" border="1" cellpadding="5px">
+
+						<tr >
+							<th><p>Sl.No</p></th>
+							<th>
+								
+										Area of 
+										Cross Section <br>
+										in <i>(mm<sup>2</sup>)</i>
+								
+							</th>
+							<th>
+								
+									Ultimate 
+									Compression Load<br>
+									in <i>N</i> (P<sub>c</sub>)
+								
+							</th>
+
+						</tr>
+						<tr>
+							<td><br><br>1<br></td>
+							<td></td>
+							<td></td>
+												
+						</tr>
+					
+					</table>
+					<b>Trial - 2</b>
+					<table id="obsTable2" border="1" cellpadding="5px">
+
+						<tr >
+							<th><p>Sl.No</p></th>
+							<th>
+								
+										Area of 
+										Cross Section <br>
+										in <i>(mm<sup>2</sup>)</i>
+								
+							</th>
+							<th>
+								
+									Ultimate 
+									Compression Load<br>
+									in <i>N</i> (P<sub>c</sub>)
+								
+							</th>
+
+						</tr>
+						<tr>
+							<td><br><br>1<br></td>
+							<td></td>
+							<td></td>
+												
+						</tr>
+					
+					</table>
+					<b>Trial - 3</b>
+					<table id="obsTable3" border="1" cellpadding="5px">
+
+						<tr >
+							<th><p>Sl.No</p></th>
+							<th>
+								
+										Area of 
+										Cross Section <br>
+										in <i>(mm<sup>2</sup>)</i>
+								
+							</th>
+							<th>
+								
+									Ultimate 
+									Compression Load<br>
+									in <i>N</i> (P<sub>c</sub>)
+								
+							</th>
+
+						</tr>
+						<tr>
+							<td><br><br>1<br></td>
+							<td></td>
+							<td></td>
+												
+						</tr>
+					
+					</table>
+				</div>
+				<div id="VerifyDiv">
+					<h3><u>Verification  Table</u></h3>
+
+					<form name="form">
+						<table border="1" cellpadding="8px">
+							<tr>
+								<th rowspan="2">Sl.No</th>
+								<th colspan="3">
+										Ultimate Compression Stress<br>
+										&sigma;<sub>c</sub> = (P<sub>c</sub> / A) <i>(N / mm<sup>2</sup>)</i>
+									
+								</th>
+							</tr>
+							<tr>
+								<th>Trial-1</th>
+								<th>Trial-2</th>
+								<th>Trial-3</th>
+							</tr>
+							<tr>
+								<td><br>1</td>
+								<td>
+									<input 	type="number" 
+													name="cs1"
+													step="0.1"
+													value="0">
+								</td>
+								<td>
+									<input 	type="number" 
+													name="cs2"
+													step="0.1"
+													value="0">
+								</td>
+								<td>
+									<input 	type="number" 
+													name="cs3"
+													step="0.1"
+													value="0">
+								</td>
+							</tr>
+						</table>
+					</form>
+					<p><b>Note :- </b>Enter the Measured/Calculated values to Verify.</p>
+				</div>
+
+				<div id="ResultDiv">
+					<h3><u>Result Table</u></h3>
+
+					<table 	id="resultTable"
+									border="1"
+									cellpadding="5px">
+							<tr>
+								<th rowspan="2">Trial-No</th>
+								<th colspan="2">
+									Ultimate Compression Stress<br>
+									&sigma;<sub>c</sub> = (P<sub>c</sub> / A) <i>(N / mm<sup>2</sup>)</i></th>
+								<th rowspan="2">Percentage Error</th>
+							</tr>
+							<tr>
+								<th>Actual Value</th>
+								<th>Entered Value</th>
+							</tr>
+							
+							<tr>
+								<td><br>Trial-1</td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td><br>Trial-2</td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td><br>Trial-3</td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+					</table>
+				</div>
+			</center>
+
+			<div id="instructionsDiv">
+					<h3 align="center"><u>Instructions</u></h3>
+						 <ul type = "square">
+						 	<li><span >Click the <b>START</b> button to start the machine.</span></li>
+						 	<li><span >Click the <b>STOP</b> button if you want to stop the machine.</span></li>
+						 	<li><span >Once the block is broken, load readings will be added to the observation table automatically.</span></li>
+							<li><span >Now calculate the Ultimate Compression Stress from the data in observation table.</span></li>
+						 	<li><span >Now click <b>NEXT</b> button and enter the calculated ultimate Compression strength value.</span></li>
+						 	<li><span >Press the <b>VERIFY</b>  button to check the correctness.</span></li>
+						 	<li><span >Click the <b>SHOW RESULT</b> button to view result.</span></li>
+						 	<li><span >you can use <b>SHOW DATA</b> button whenever you want to view the data.</span></li>
+						 	<li><span >Use <b>PRINT OBSERVATIONS</b> button to save the experiment.</span></li>
+						 	<li><span >Use <b>RESET</b> button to start the experiment from beginning.</span></li>
+						 </ul>
+					</div>
+
+			<div id="popupdiv">
+					<div>
+						<!--
+						<script type="text/javascript">
+			        // Popup window code
+			        function newPopup(url) {
+			          popupWindow = window.open(url, 'popUpWindow',
+			            'height=500,width=400,left=10,top=10,resizable=yes,scrollbars=yes,toolbar=no,menubar=no,location=no,directories=no,status=yes'
+			            )
+			        }
+		      	</script>
+		      	-->
+		      	<button id="instructions" 
+			      					class="button" 
+			      					align="left">
+			      					Show Instructions
+			      </button>
+
+					</div>
+					<div 	id="btnDiv">
+
+						<button id="showData"
+										class = "button" >
+							Show Data
+						</button>
+
+						<button id="showResultsBtn" 
+										class="button" 
+										onclick="calculateAverage()">
+								Next
+						</button>
+
+					</div>
+				</div>
+
+			<div id="avgDiv">
+				<span id="result"></span>
+			</div>
+
+		</div>
+		
+	</div>
+
+	<footer class="footer" 
+					style="margin-top: 6%;  height: 50px;  background-color: white;  color: black;  text-align: center; padding-top: 1.5px" >
+	        <h4 >©Virtual Labs IIT Roorkee 2021<!-- Institute Name --> </h4>
+	</footer>
+
+	<script type="text/javascript" src="server.js"></script>
+</body>
+	
+</body>
+</html>

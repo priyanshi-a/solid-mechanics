@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="./style1.css">
+	<script 
+      src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+  </script>
+	<title>Simulation</title>
+</head>
+<body style="background-color:#e8f6fa;">
+	<div id="printDiv">
+		<form >
+			<input 	class="button no-print" 
+							type="button" 
+							onclick="window.print()" 
+							value="Print Observations"/>
+			
+		</form>
+	</div>
+	<center>
+		<h3><u>Torsion test on Steel specimen.</u></h3>
+	</center>
+	
+	<div id="Content">
+	
+		<div id="simulationBoard">
+
+			<svg id="svgPanel" height="480" width="700" >
+
+<!-----------------------Vernier Calipers------------------------------------------->
+
+				<line id="movingRod"
+							fill="none"
+							stroke="rgb(0,0,0)">
+					<title>Rod</title>
+				</line>
+
+				<path id="static" 
+							stroke="black"
+							stroke-width="2" 
+							fill="lightblue">
+					<title>Vernier calipers</title>
+				</path>
+
+				<path id="moving"
+							stroke="black"
+							stroke-width="2"
+							fill="lightblue">
+					<title>Vernier calipers</title>
+				</path>
+
+				<text id="measureLabel" 
+							fill="blue">
+					<title> Measurement </title>
+				</text>
+				
+
+<!----------------------------------Scale Scene------------------------------------------------------>
+
+				<path id="scale" stroke="black" stroke-width="2" fill="lightblue">
+					<title> Scale </title>
+				</path>
+
+				<line id="scaleRod" fill="blue" stroke="blue">
+					<title>Rod</title>
+				</line>
+
+				<line id="ScaleRodStroke" fill="none" stroke="rgb(0,0,0)">
+					<title> Stroke </title>
+				</line>
+
+<!------------------------------------------------------------------------>
+				<line id="rod"   
+					 fill="none" 
+					 stroke="rgb(0,0,0)">
+					<title>RCC member</title>	
+				</line>
+
+				<line id="rodL"   
+					 fill="none" 
+					 stroke="rgb(0,0,0)">
+					<title>RCC member</title>	
+				</line>
+
+				<line id="rodR"   
+					 fill="none" 
+					 stroke="rgb(0,0,0)">
+					<title>RCC member</title>	
+				</line>
+
+				<rect id="rodHolderL"   
+					 fill="#3E2723" 
+					 stroke-width="0"
+					 stroke="rgb(0,0,0)">
+					<title>Specimen Holder</title>	
+				</rect>
+
+				<rect id="rodHolderR"   
+					 fill="#3E2723" 
+					 stroke-width="0"
+					 stroke="rgb(0,0,0)">
+					<title>Specimen Holder</title>	
+				</rect>
+
+				<rect id="rholderSl"   
+					 fill="rgb(0,0,255)" 
+					 stroke-width="0"
+					 stroke="rgb(0,0,0)">
+					<title>Specimen Holder</title>	
+				</rect>
+
+				<rect id="rholderSr"   
+					 fill="rgb(0,0,255)" 
+					 stroke-width="0"
+					 stroke="rgb(0,0,0)">
+					<title>Specimen Holder</title>	
+				</rect>
+
+				<rect id="axell1"   
+					 fill="#6D4C41" 
+					 stroke-width="0"
+					 stroke="rgb(0,0,0)">
+					<title>Torsion testing machine – Model TT-6</title>	
+				</rect>
+
+				<rect id="axell2"   
+					 fill="#6D4C41" 
+					 stroke-width="0"
+					 stroke="rgb(0,0,0)">
+					<title>Torsion testing machine – Model TT-6</title>	
+				</rect>
+
+				<rect id="axellend" 
+					 stroke-width="0"
+					 stroke="rgb(0,0,0)">
+					<title>Torsion testing machine – Model TT-6</title>	
+				</rect>
+
+				<rect id="axelr"   
+					 fill="rgb(0,0,255)" 
+					 stroke-width="0"
+					 stroke="rgb(0,0,0)">
+					<title>Torsion testing machine – Model TT-6</title>	
+				</rect>
+
+				<rect id="machineBodyl"   
+					 fill="#9E9E9E" 
+					 stroke-width="2"
+					 stroke="black">
+					<title>Torsion testing machine – Model TT-6</title>	
+				</rect>
+
+				<rect id="machineBodyr"   
+					 fill="#9E9E9E" 
+					 stroke-width="2"
+					 stroke="rgb(0,0,0)">
+					<title>Torsion testing machine – Model TT-6</title>	
+				</rect>
+
+				<circle id="lHole1" 
+					  stroke="red" 
+					  stroke-width="3" 
+					  fill="none" >
+					<title>Tightning Hole</title>
+				</circle>
+
+				<circle id="lHole2" 
+					  stroke="red" 
+					  stroke-width="3" 
+					  fill="none" >
+					<title>Tightning Hole</title>
+				</circle>
+
+				<circle id="lHole3" 
+					  stroke="red" 
+					  stroke-width="3" 
+					  fill="none" >
+					<title>Tightning Hole</title>
+				</circle>
+
+				<circle id="rHole1" 
+					  stroke="red" 
+					  stroke-width="3" 
+					  fill="none" >
+					<title>Tightning Hole</title>
+				</circle>
+
+				<circle id="rHole2" 
+					  stroke="red" 
+					  stroke-width="3" 
+					  fill="none" >
+					<title>Tightning Hole</title>
+				</circle>
+
+				<circle id="rHole3" 
+					  stroke="red" 
+					  stroke-width="3" 
+					  fill="none" >
+					<title>Tightning Hole</title>
+				</circle>
+
+				<line id = "rodStroke1"
+						fill="black"
+						stroke = "black"
+						stroke-width = "3" >
+					<title>Strokes on Rod</title>		
+				</line>
+
+				<line id = "rodStroke2"
+						fill="black"
+						stroke = "black"
+						stroke-width = "3" >
+					<title>Strokes on Rod</title>		
+				</line>
+
+				<line id = "rodStroke3"
+						fill="black"
+						stroke = "black"
+						stroke-width = "3" >
+					<title>Strokes on Rod</title>		
+				</line>
+
+				<line id = "rodStroke4"
+						fill="black"
+						stroke = "black"
+						stroke-width = "3" >
+					<title>Strokes on Rod</title>		
+				</line>
+
+				<line id = "rodStroke5"
+						fill="black"
+						stroke = "black"
+						stroke-width = "3" >
+					<title>Strokes on Rod</title>		
+				</line>
+
+				<line id = "rodStroke6"
+						fill="black"
+						stroke = "black"
+						stroke-width = "3" >
+					<title>Strokes on Rod</title>		
+				</line>
+
+
+
+<!-----------------------Deflecto Meter started----------------------------->
+
+				<circle id="meter" 
+					  stroke="black" 
+					  stroke-width="3" 
+					  fill="white" >
+					<title> Meter </title>
+				</circle>
+
+				<text id="dmai1"> 0 </text>
+
+			 	<text id="dmai2"> 40 </text>
+
+			  <text id="dmai3"> 80 </text>
+
+			  <rect id="dlefReadingBorder"
+			  			stroke="black"
+			  			stroke-width = "2" fill="#fff">
+			  	<title> Meter Reading </title>
+			  </rect>
+
+			  <text id="dlefReading" fill="blue">
+			  	<title> Meter Reading </title>
+			  	0
+			  </text>
+
+				<line id = "innerNeedleB"
+						fill="black"
+						stroke = "black"
+						stroke-width = "3" >
+					<title>Meter Needle</title>		
+				</line>
+
+				<line id = "innerNeedleR"
+						fill="red"
+						stroke = "red"
+						stroke-width = "3" >
+					<title>Meter Needle</title>		
+				</line>
+			  
+			  <circle id="innerCircle" 
+					  stroke="black" 
+					  stroke-width="1" 
+					  fill="red" >
+					<title>Meter</title>  	
+				</circle>
+				  
+<!-----------------------Deflecto Meter ended----------------------------->
+
+				<circle id="wheel" 
+					  stroke="red" 
+					  stroke-width="3" 
+					  fill="none" >
+					<title>wheel</title>
+				</circle>
+
+				<line id = "wheelSupport1"
+						fill="red"
+						stroke = "red"
+						stroke-width = "3" />
+
+				<line id = "wheelSupport2"
+						fill="red"
+						stroke = "red"
+						stroke-width = "3" />
+
+				<line id = "wheelSupport3"
+						fill="red"
+						stroke = "red"
+						stroke-width = "3" />
+
+<!-----------------------Rotating Wheel Ended----------------------------------->
+				
+				<path id="strokes1"
+					stroke="blue" 
+					stroke-width="2" 
+					fill="lightblue">
+					<title>Torsion testing machine – Model TT-6</title>	
+				</path>
+
+				<path id="strokes2"
+					stroke="blue" 
+					stroke-width="2" 
+					fill="lightblue">
+					<title>Torsion testing machine – Model TT-6</title>	
+				</path>
+
+				<line id="BaseLine"  
+					  	stroke="black" 
+					  	stroke-width="3" 
+					  	fill="none" >
+				<title>Base</title>		
+				</line>
+				
+			  Sorry, your browser does not support inline SVG.
+			</svg>
+
+			<div class = "ButtonsDiv">
+				<button id="next2" class="button" > &nbsp;Next&nbsp; </button>
+				<button id="start" class="button" > &nbsp;Start&nbsp; </button>
+				<button id="stop" class="button" > &nbsp;Stop&nbsp; </button>
+		  	<button id="reset" class="button" > &nbsp;Reset&nbsp; </button>
+			</div>
+
+		</div>
+		
+		<div id="tableDiv">
+			<center>
+
+				<div id = "dataDiv">
+
+					<div id="optionsDiv">
+						Material : <select id="options">
+							<option value="RCC" selected><p> RCC </p></option>
+							<option value="Mild_Steel" ><p> Mild Steel </p></option>
+							<option value="HYSD_Bars" ><p> HYSD Bars </p></option>
+						</select>
+					</div>
+
+				<div id="ObsTabDiv">
+					<h3><u>Observation  Table</u></h3>
+
+					<table id="obsTable" border="1" cellpadding="5px">
+
+						<tr >
+							<th><p>SL.NO</p></th>
+							<th><p>Material</p></th>
+							<th><p>Gauge<br>Lenght<br>(L)<br><i>mm</i></p></th>
+							<th><p>Diameter<br>(d)<br><i>mm</i></p></th>
+							<th><p>Torque<br>(T)<br><i>Nm</i></p></th>
+							<th><p>Twist<br>(&theta;)<br>rad</p></th>
+							<th><p>&nbsp;&nbsp;Shear&nbsp;&nbsp;<br>Stress<br>(&Tscr;)<br><i>N / mm<sup>2</sup></i></p></th>
+						</tr>
+						<tr>
+							<td><br><br>1</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>				
+						</tr>
+						
+					</table>
+				</div>
+				<div id="VerifyDiv">
+
+					<h3><u>Verification  Table</u></h3>
+
+					<form name="verify">
+						<table border="1" cellpadding="10px">
+							<tr>
+								<th>Sl.no</th>
+								<th><p>Rigidity modulus (G)<br><i>N / mm<sup>2</sup></i></p></th>
+							</tr>
+							<tr>
+								<td><br>1</td>
+								<td>
+									<input 	type="number"
+													name="mr"
+													step="0.1"
+													value="0">
+								</td>
+							</tr>
+						</table>
+					</form>
+					<p><b>Note :- </b>Enter the Measured/Calculated values to Verify.</p>
+				</div>
+
+				<div id="ResultDiv">
+
+					<h3><u>Results  Table</u></h3>
+
+					<table id="resultTable" border="1" cellpadding="10px">
+						<tr>
+							<th rowspan="2">Sl.No</th>
+							<th colspan="2">Rigidity modulus (G)<br><i>N / mm<sup>2</sup></i></th>
+							<th rowspan="2">Percentage Error</th>
+						</tr>
+						<tr>
+							<th>Actual Value</th>
+							<th>Entered Value</th>
+						</tr>
+						<tr>
+							<td><br>1</td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+					</table>
+				</div>
+			</center>
+			<div id="instructionsDiv">
+				<h3 align="center"><u>Instructions</u></h3>
+					 <ul type = "square">
+						 	<li><span >Click the <b>START</b> button to start the machine.</span></li>
+						 	<li><span >Click the <b>STOP</b> button if you want to stop the machine.</span></li>
+						 	<li><span >Once the rod is broken, load readings will be added to the observation table automatically.</span></li>
+							<li><span >Now calculate the Rigidity modulus from the data in observation table.</span></li>
+						 	<li><span >Now click <b>NEXT</b> button and enter the calculated Rigidity modulus value.</span></li>
+						 	<li><span >Press the <b>VERIFY</b>  button to check the correctness.</span></li>
+						 	<li><span >Click the <b>SHOW RESULT</b> button to view result.</span></li>
+						 	<li><span >you can use <b>SHOW DATA</b> button whenever you want to view the data.</span></li>
+						 	<li><span >Use <b>PRINT OBSERVATIONS</b> button to save the experiment.</span></li>
+						 	<li><span >Use <b>RESET</b> button to start the experiment from beginning.</span></li>
+						 </ul>
+			</div>
+			<div id="popupdiv">
+					<div>
+						<!--
+						<script type="text/javascript">
+			        // Popup window code
+			        function newPopup(url) {
+			          popupWindow = window.open(url, 'popUpWindow',
+			            'height=500,width=400,left=10,top=10,resizable=yes,scrollbars=yes,toolbar=no,menubar=no,location=no,directories=no,status=yes'
+			            )
+			        }
+		      	</script>
+		      	`-->
+		      	<button id="instructions" 
+			      					class="button" 
+			      					align="left">
+			      					Show Instructions
+			      </button>
+
+					</div>
+
+					<div 	id="btnDiv">
+
+						<button id="showData"
+										class = "button" >
+							Show Data
+						</button>
+
+						<button id="next" 
+										class="button">
+									Next
+						</button> 
+					</div>
+				</div>
+			<div id="avgDiv">
+				<span id="Average"></span>
+				<span id="result"></span>
+			</div>
+
+		</div>
+		
+	</div>
+
+	<footer class="footer"
+					style="margin-top: 5.6%;  height: 50px;  background-color: white;  color: black;  text-align: center; padding-top: 1.5px" >
+          <h4 >©Virtual Labs IIT Roorkee 2021<!-- Institute Name --> </h4>
+  </footer>
+
+	<script type="text/javascript" src="server.js"></script>
+</body>
+	
+</body>
+</html>

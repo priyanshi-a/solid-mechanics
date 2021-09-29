@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="./style1.css">
+	<script 
+      src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+  </script>
+	<title>Simulation</title>
+</head>
+<body onload="initializeSVG()" 
+			style="background-color:#e8f6fa;">
+	<div id="printDiv">
+		<form >
+			<input 	class="button no-print" 
+							type="button" 
+							onclick="window.print()" 
+							value="Print Observations"/>
+			
+		</form>
+	</div>
+  <center>
+    <h3><u>Maxwell's Reciprocal Theorem on Beams.</u></h3>
+  </center>
+  
+	<div id="Content">
+		
+		<div id="simulationBoard">
+    
+			<svg id="svgPanel" height="480" width="700" >
+
+<!-------------------------3D rod View ---------------------------------->
+						<line id="widthLine"
+									fill="none"
+									stroke="rgb(0,0,0)">
+							<title>Width</title>
+						</line>
+
+						<line id="thicknessLine"
+									fill="none"
+									stroke="rgb(0,0,0)">
+							<title>Thickness</title>
+						</line>
+
+						<line id="lengthLine"
+									fill="none"
+									stroke="rgb(0,0,0)">
+							<title>Length</title>
+						</line>
+
+						<path id="Rod3D" 
+									fill="blue"
+									stroke="black">
+							<title>Rod</title>
+						</path>
+
+						<defs>
+							<path id="widthLPath" stroke="red" />
+						</defs>
+
+
+						<text id="width">
+							<textPath id="widthPath"
+												href="#widthLPath"
+												stroke="blue">
+								Width
+							</textPath>
+						</text>
+
+						<text id="thickness"
+									fill="blue">
+							<title> Thickness </title>
+						</text>
+
+						<text id="length"
+									fill="blue">
+							<title> Length </title>
+						</text>
+
+<!-----------------------Vernier Calipers------------------------------------------->
+
+				<line id="movingRod"
+							fill="none"
+							stroke="rgb(0,0,0)">
+					<title>Rod</title>
+				</line>
+
+				<path id="static" 
+							stroke="black"
+							stroke-width="2" 
+							fill="lightblue">
+					<title>Vernier calipers</title>
+				</path>
+
+				<path id="moving"
+							stroke="black"
+							stroke-width="2"
+							fill="lightblue">
+					<title>Vernier calipers</title>
+				</path>
+
+				<text id="measureLabel" 
+							fill="blue">
+					<title> Measurement </title>
+				</text>
+				
+
+<!----------------------------------Scale Scene------------------------------------------------------>
+
+				<path id="scale" stroke="black" stroke-width="2" fill="lightblue">
+					<title> Scale </title>
+				</path>
+
+				<line id="scaleRod" fill="blue" stroke="blue">
+					<title>Rod</title>
+				</line>
+
+				<line id="ScaleRodStroke" fill="none" stroke="rgb(0,0,0)">
+					<title> Stroke </title>
+				</line>
+
+<!--------------------------------------------------------------------->
+
+				<path id = "needle" >
+						<title>Deflection Meter Needle</title>
+				</path>
+	 
+	  		<line id="hLine"  
+              stroke="rgb(255,0,0)"
+              stroke-width="5" >
+					<title>Support for Deflection Meter</title>	   	
+				</line>
+	  
+			  <line id="vLine" 
+              stroke="rgb(255,0,0)"
+              stroke-width="6" >
+					<title>Support for Deflection Meter</title>	
+				</line>
+	  
+			  <circle id="lineHolder"  
+					  stroke="black" 
+					  stroke-width="3" 
+					  fill="black" >
+					<title>Support for Deflection Meter</title>  
+				</circle>
+	  
+			  <circle id="meter" 
+					  stroke="black" 
+					  stroke-width="3" 
+					  fill="white" >
+					<title>Deflection Meter</title>
+				</circle>
+
+				<text id="dmai1" >0</text>
+
+			  <text id="dmai2">40</text>
+
+			  <text id="dmai3">80</text>
+
+        <rect id="dlefReadingBorder"
+            stroke="black"
+            stroke-width = "2" fill="#fff">
+          <title>Deflection Meter Reading</title>
+        </rect>
+
+        <text id="dlefReading" fill="blue">
+          <title>Deflection Meter Reading</title>
+          0
+        </text>
+
+				<line id = "innerNeedle"
+						fill="red"
+						stroke = "red"
+						stroke-width = "3" />
+
+			  
+			  <circle id="innerCircle" 
+					  stroke="black" 
+					  stroke-width="1" 
+					  fill="red" />
+			  
+			 	<rect id="suppStand"   
+					 fill="rgb(0,0,255)" 
+					 stroke-width="3"
+					 stroke="rgb(0,0,0)" >
+					<title>Support for Deflection Meter</title>	
+				</rect>
+				  
+<!------------------------------------------------------------->
+
+				<polygon id="support1"
+		  		stroke="black" 
+		  		stroke-width="2" 
+		  		fill="lightblue">
+		  		<title>Knife-Edge Support for Beam</title>
+		  	</polygon>
+
+		  	<polygon id="support2"
+		  		
+		  		stroke="black" 
+		  		stroke-width="2" 
+		  		fill="lightblue">
+		  		<title>Knife-Edge Support for Beam</title>		
+		  	</polygon>
+
+		  	<path id="beam" 
+		  		 
+		  		stroke="blue" 
+		  		stroke-width="13" 
+		  		fill="none" >
+		  		<title>&nbsp;Mild Steel Beam&nbsp;</title>	
+		  	</path>
+
+		  	<rect id="weightHanger" 
+	  			fill="black"
+	  			stroke="black"
+	  			stroke-width="2" >
+	  			<title>Weight Hanger</title>		
+	  		</rect>
+
+	  		<line id="string" 
+		  		 
+		  		stroke="black" 
+		  		stroke-width="2" 
+		  		fill="none" />
+
+		  	<polygon id="weight"
+		  		
+		  		stroke="black" 
+		  		stroke-width="2" 
+		  		fill="lightblue">
+		  		<title>Weight</title>
+		  	</polygon>
+
+		  	<text id="text" fill="red">
+		  		<title>Weight Value</title>
+		  		0 KG
+		  	</text>
+
+<!--------------------------------------------------------------------------------->
+						
+				<path id="strokes1"
+					stroke="blue" 
+					stroke-width="2" 
+					fill="lightblue">
+					<title>Torsion testing machine – Model TT-6</title>	
+				</path>
+
+				<path id="strokes2"
+					stroke="blue" 
+					stroke-width="2" 
+					fill="lightblue">
+					<title>Torsion testing machine – Model TT-6</title>	
+				</path>
+				
+		  	<line id="BaseLine"  
+					  	stroke="black" 
+					  	stroke-width="3" 
+					  	fill="none" >
+					<title>Base</title>		
+				</line>
+
+			  Sorry, your browser does not support inline SVG.
+			</svg>
+			<div class = "ButtonsDiv">
+
+				<button id="next2" class="button" >Next</button>
+				<button id="addweight" class="button" >Add Weight</button>
+		  	<button id="removeweight" class="button" >Remove Weight</button>
+		  	<button id="addreadings" class="button" >Add Readings to Table	</button>
+		  	<button id="swap" class="button" >Swap Positions</button>
+			</div>
+
+		</div>
+		
+		<div id="tableDiv">
+			<center>
+
+					<div id="ObsTabDiv">
+						<h3><u>Observation Table</u></h3>
+
+						<table id="obsTable" border="1" >
+							<tr >
+								<th><p>SL.NO</p></th>
+								<th>
+									<p>
+										&nbsp;LOAD(N)&nbsp;<br> 
+											AT <br> 
+										&nbsp;CENTRE&nbsp;
+									</p>
+								</th>
+								<th>
+									<p>
+										&nbsp;&nbsp;¼ SPAN&nbsp;&nbsp;<br> 
+										&nbsp;&nbsp;DEFLECTION&nbsp;&nbsp;
+									</p>
+								</th>
+								<th>
+									<p>
+										&nbsp;LOAD(N)&nbsp;<br>
+											AT <br>
+										&nbsp;¼&nbsp;SPAN&nbsp;
+									</p>
+								</th>
+								<th>
+									<p>
+										&nbsp;&nbsp;MID-SPAN&nbsp;&nbsp;<br>
+										&nbsp;&nbsp;DEFLECTION&nbsp;&nbsp;
+									</p>
+								</th>
+								
+							</tr>
+							<tr>
+								<td><br>1</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+												
+							</tr>
+							<tr>
+								<td><br>2</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								
+							</tr>
+							<tr>
+								<td><br>3</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+												
+							</tr>
+							<tr>
+								<td><br>4</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+										
+							</tr>
+						
+						</table>	
+			</div>
+			<div id="VerifyDiv">
+				<h3><u>Verification Table</u></h3>
+				<form name="verifyP">
+					<table border="1" cellpadding="10px">
+						<tr>
+							<th>Sl.no</th>
+							<th>&nbsp;&nbsp;P<sub>1</sub>&delta;<sub>12</sub>&nbsp;&nbsp;</th>
+							<th>&nbsp;&nbsp;P<sub>2</sub>&delta;<sub>21</sub>&nbsp;&nbsp;</th>
+						</tr>
+						<tr>
+							<td><br>1</td>
+							<td><input type="number" name="p11" step="0.1" value="0"></td>
+							<td><input type="number" name="p21" step="0.1" value="0"></td>
+						</tr>
+						<tr>
+							<td><br>2</td>
+							<td><input type="number" name="p12" step="0.1" value="0"></td>
+							<td><input type="number" name="p22" step="0.1" value="0"></td>
+						</tr>
+						<tr>
+							<td><br>3</td>
+							<td><input type="number" name="p13" step="0.1" value="0"></td>
+							<td><input type="number" name="p23" step="0.1" value="0"></td>
+						</tr>
+						<tr>
+							<td><br>4</td>
+							<td><input type="number" name="p14" step="0.1" value="0"></td>
+							<td><input type="number" name="p24" step="0.1" value="0"></td>
+						</tr>
+					</table>
+				</form>
+				<span><b>Note :- </b>Enter the Measured/Calculated values to Verify.</span>
+			</div>
+			<div id="ResultDiv">
+				<h3><u>Result Table</u></h3>
+
+				<table 	id="resultTable" border="1" cellpadding="4px">
+					<tr>
+						<th rowspan="2">Sl.No</th>
+						<th colspan="3">P<sub>1</sub>&delta;<sub>12</sub></th>
+						<th colspan="3">P<sub>2</sub>&delta;<sub>21</sub></th>
+					</tr>
+					<tr>
+						<th>Actual<br>Value</th>
+						<th>Entered<br>Value</th>
+						<th>Percentage<br>Error</th>
+						<th>Actual<br>Value</th>
+						<th>Entered<br>Value</th>
+						<th>Percentage<br>Error</th>
+					</tr>
+					
+					<tr>
+						<td><br>1</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td><br>2</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td><br>3</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td><br>4</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+				</table>
+			</div>
+	    </center>
+	    <div id="instructionsDiv">
+						<h3 align="center"><u>Instructions</u></h3>
+              <ul type="square">
+							 	<li>Load at &frac12; span:</li>
+								<ul>
+									<li><span>we can Add weights to the Beam by clicking on <b>ADD WEIGHT</b> button.</span></li>
+									<li><span>Now add the deflection readings to the observation table by clicking <b>ADD READINGS TO TABLE</b> button.</span></li>
+									<li><span>Do the above steps for { 0.5 kg, 1 kg, 1.5 kg, 2 kg} weights.</span></li>
+								</ul>
+								<li><span>Remove all the load by clicking <b>REMOVE WEIGHT</b> button 4 times.</span></li>
+								<li><span>Use <b>SWAP POSITIONS</b> button to change the position of load from ½ span to ¼ span and deflectometer from ¼ span to ½ span.</span></li>
+								<li>load at &frac14; span:</li>
+								<ul>
+									<li><span>we can Add weights to the Beam by clicking on <b>ADD WEIGHT</b> button.</span></li>
+									<li><span>Now add the deflection readings to the observation table by clicking <b>ADD READINGS TO TABLE</b> button.</span></li>
+									<li><span>Do the above steps for { 0.5 kg, 1 kg, 1.5 kg, 2 kg} weights.</span></li>
+								</ul>
+								<li>Calculations:</li>
+								<ul>
+									<li><span>After adding all the recordings, now click the <b>NEXT</b> button.</span></li>
+									<li><span>Enter your calculated values of p<sub>1</sub>s<sub>12</sub> and p<sub>2</sub>s<sub>21</sub> in respective rows to check answers by clicking <b>VERIFY</b> button..</span></li>
+									<li><span>Check your answers and click <b>SHOW RESULT</b> button to view the answer.</span></li>
+								</ul>
+								<li><span>you can use <b>SHOW DATA</b> button whenever you want to view the data.</span></li>
+								<li><span>Use <b>PRINT OBSERVATIONS</b> button to save the experiment.</span></li>
+							 </ul>
+					</div>
+	    <div id="popupdiv">
+				<div>
+					<!--
+					<script type="text/javascript">
+		        // Popup window code
+		        function newPopup(url) {
+		          popupWindow = window.open(url, 'popUpWindow',
+		            'height=500,width=400,left=10,top=10,resizable=yes,scrollbars=yes,toolbar=no,menubar=no,location=no,directories=no,status=yes'
+		            )
+		        }
+	      	</script>
+	      	-->
+	      	<button id="instructions" 
+	      					class="button" 
+	      					align="left">
+	      					Show Instructions
+	      	</button>
+
+				</div>
+				<div id="btnDiv">
+
+					<button id="showData"
+									class = "button" >
+							Show Data
+					</button>
+
+	        <button id="averageBtn" 
+	        				class="button">
+							Next
+	        </button>
+	      </div> 
+	    </div>
+      <div id="avgDiv">
+        <span id="Average"></span>
+        <span id="result"></span>
+			</div>
+		</div>
+		
+	</div>
+	
+	<footer class="footer" 
+					style="margin-top: 6%;  height: 50px;  background-color: white;  color: black;  text-align: center; padding-top: 1.5px" >
+          <h4 >©Virtual Labs IIT Roorkee 2021<!-- Institute Name --> </h4>
+  </footer>
+
+	<script type="text/javascript" src="server.js"></script>
+</body>
+	
+</body>
+</html>
