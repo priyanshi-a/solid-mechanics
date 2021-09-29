@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="./style1.css">
+	<script 
+      src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+   </script>
+	<title>Simulation</title>
+</head>
+<body style="background-color:#e8f6fa;">
+	<div id="printDiv">
+		<form >
+			<input 	class="button no-print" 
+							type="button" 
+							onclick="window.print()" 
+							value="Print Observations"/>
+			
+		</form>
+	</div>
+	<center>
+		<h3><u>Modulus of Rigidity of the Spring.</u></h3>
+	</center>
+	
+	<div id="Content">
+	
+		<div id="simulationBoard">
+
+			<svg id="svgPanel" height="480" width="700" >
+
+				<text id="lodUnLodText" ></text>
+
+				<rect id="mbL"   
+					 fill="#6D4C41" 
+					 stroke-width="2"
+					 stroke="rgb(0,0,0)">
+					<title>Tensile Testing Machine</title>	
+				</rect>
+
+				<rect id="mbR"   
+					 fill="#6D4C41" 
+					 stroke-width=3
+					 stroke="rgb(0,0,0)">
+					<title>Tensile Testing Machine</title>	
+				</rect>
+
+				<rect id="mbRl"   
+					 fill="#6D4C41" 
+					 stroke-width="2"
+					 stroke="rgb(0,0,0)">
+					<title>Tensile Testing Machine</title>	
+				</rect>
+
+				<rect id="mbRr"   
+					 fill="#6D4C41" 
+					 stroke-width="2"
+					 stroke="rgb(0,0,0)">
+					<title>Tensile Testing Machine</title>	
+				</rect>
+
+				<rect id="DeflectionMeter"   
+					 fill="blue" 
+					 stroke-width="3"
+					 stroke="rgb(0,0,0)" >
+					<title>Deflection Meter</title>	
+				</rect>
+
+				<rect id="whiteMat"   
+					 fill="white" 
+					 stroke-width="1"
+					 stroke="rgb(0,0,0)" >
+					<title>Deflection Meter</title>	
+				</rect>
+
+				<line id = "ls1"
+						stroke = "black"
+						stroke-width = "2" >
+					<title>Deflection Meter</title>		
+				</line>
+
+				<line id = "ls2"
+						stroke = "black"
+						stroke-width = "2" >
+					<title>Deflection Meter</title>			
+				</line>
+
+				<line id = "ss1"
+						stroke = "black"
+						stroke-width = "2" >
+					<title>Deflection Meter</title>			
+				</line>
+				<line id = "ss2"
+						stroke = "black"
+						stroke-width = "2" >
+					<title>Deflection Meter</title>			
+				</line>
+				<line id = "ss3"
+						stroke = "black"
+						stroke-width = "2" >
+					<title>Deflection Meter</title>			
+				</line>
+				<line id = "ss4"
+						stroke = "black"
+						stroke-width = "2" >
+					<title>Deflection Meter</title>			
+				</line>
+				<line id = "ss5"
+						stroke = "black"
+						stroke-width = "2" >
+					<title>Deflection Meter</title>			
+				</line>
+				<line id = "ss6"
+						stroke = "black"
+						stroke-width = "2" >
+					<title>Deflection Meter</title>			
+				</line>
+				<line id = "ss7"
+						stroke = "black"
+						stroke-width = "2" >
+					<title>Deflection Meter</title>			
+				</line>
+				<line id = "ss8"
+						stroke = "black"
+						stroke-width = "2" >
+					<title>Deflection Meter</title>			
+				</line>
+				<line id = "ss9"
+						stroke = "black"
+						stroke-width = "2" >
+					<title>Deflection Meter</title>			
+				</line>
+				<line id = "ss10"
+						stroke = "black"
+						stroke-width = "2" >
+					<title>Deflection Meter</title>			
+				</line>
+
+				<path id="DeflPointer"
+					stroke="black" 
+					stroke-width="1" 
+					fill="black">
+					<title>Deflection Pointer</title>	
+				</path>
+
+				<rect id="support"   
+					 fill="blue" 
+					 stroke-width="3"
+					 stroke="rgb(0,0,0)" >
+					<title>Support for Tensile Testing Machine</title>	
+				</rect>
+
+				<path id="springHolderUp"
+					stroke="black" 
+					stroke-width="3" 
+					fill="black">
+					<title>Tensile Testing Machine</title>	
+				</path>
+
+				<path id="springHolderDown"
+					stroke="black" 
+					stroke-width="3" 
+					fill="black">
+					<title>Tensile Testing Machine</title>	
+				</path>
+
+				<path id="spring"
+					stroke="blue" 
+					stroke-width="3" 
+					fill="none">
+					<title>Spring</title>		
+				</path>
+
+				<path id="springUp"
+					stroke="blue" 
+					stroke-width="3" 
+					fill="none">
+					<title>Spring</title>		
+				</path>
+
+				<path id="springDown"
+					stroke="blue" 
+					stroke-width="3" 
+					fill="none">
+					<title>Spring</title>		
+				</path>
+
+				<rect id = "axel"   
+					 fill = "lightblue" 
+					 stroke-width = "2"
+					 stroke = "rgb(0,0,0)">
+					<title>Tensile Testing Machine</title>	
+				</rect>
+				
+
+				<!-----------------------Deflecto Meter started----------------------------->
+
+				<circle id="meter" 
+					  stroke="black" 
+					  stroke-width="3" 
+					  fill="white" >
+					<title> Meter [Tensile Force]</title>
+				</circle>
+
+				<text id="dmai1"> 0 </text>
+
+			 	<text id="dmai2"> 40 </text>
+
+			  <text id="dmai3"> 80 </text>
+
+			  <rect id="dlefReadingBorder"
+			  			stroke="black"
+			  			stroke-width = "2" fill="#fff">
+			  	<title> Tensile Force Reading </title>
+			  </rect>
+
+			  <text id="dlefReading" fill="blue">
+			  	<title> Tensile Force Reading </title>
+			  	0
+			  </text>
+
+				<line id = "innerNeedleB"
+						fill="black"
+						stroke = "black"
+						stroke-width = "3" >
+					<title>Meter Needle</title>		
+				</line>
+
+				<line id = "innerNeedleR"
+						fill="red"
+						stroke = "red"
+						stroke-width = "3" >
+					<title>Meter Needle</title>		
+				</line>
+			  
+			  <circle id="innerCircle" 
+					  stroke="black" 
+					  stroke-width="1" 
+					  fill="red" >
+					<title>Meter [Tensile Force]</title>  	
+				</circle>
+				  
+<!-----------------------Deflecto Meter ended----------------------------->
+				
+				<text id="TrailText" fill="blue">
+			  	<title> Trail Text </title>
+			  </text>
+
+				<line id="BaseLine"  
+					  	stroke="black" 
+					  	stroke-width="3" 
+					  	fill="none" >
+				<title>Base</title>		
+
+			  Sorry, your browser does not support inline SVG.
+			</svg>
+
+			<div class = "ButtonsDiv">
+				<button id="load" class="button" > &nbsp;Load&nbsp; </button>
+				<button id="unload" class="button" > &nbsp;Unload&nbsp; </button>
+		  	<button id="reset" class="button" > &nbsp;Reset&nbsp; </button>
+			</div>
+
+		</div>
+		
+		<div id="tableDiv">
+
+			<center>
+
+				<div id="ObsTabDiv">
+					<h3><u>Observation  Table</u></h3>
+
+					<table id="obsTable" border="1" cellpadding="5px">
+
+						<tr>
+
+							<th rowspan="3">Sl.NO</th>
+							<th colspan="6">Deflection (&delta;) <i>mm</i></th>
+							<th colspan="6">Tensile Force (W) <i>N</i></th>
+							
+						</tr>
+						<tr>
+
+							<th colspan="3">Loading</th>
+							<th colspan="3">Un-Loading</th>
+							<th colspan="3">Loading</th>
+							<th colspan="3">Un-Loading</th>
+
+						</tr>
+						<tr>
+
+							<th>Initial</th>
+							<th>Final</th>
+							<th>Net</th>
+							<th>Initial</th>
+							<th>Final</th>
+							<th>Net</th>
+							<th>Initial</th>
+							<th>Final</th>
+							<th>Net</th>
+							<th>Initial</th>
+							<th>Final</th>
+							<th>Net</th>
+
+						</tr>
+
+						<tr>
+							<td><br>1</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>		
+						</tr>
+
+						<tr>
+							<td><br>2</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>		
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>					
+						</tr>
+
+						<tr>
+							<td><br>3</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>		
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>						
+						</tr>
+
+						<tr>
+							<td><br>4</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>		
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>						
+						</tr>
+
+						<tr>
+							<td><br>5</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>		
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>						
+						</tr>
+					
+					</table>
+
+				</div>
+
+				<div id="VerifyDiv">
+					<h3><u>Verification  Table</u></h3>
+						<form name="verifyMR">
+
+							<table border="1" cellpadding="4px">
+
+								<tr>
+									<th><p>Sl.no</p></th>
+									<th>
+										 	Modulus of Rigidity<br><i>( c )</i>
+									</th>
+								</tr>
+								<tr>
+									<td><br>1</td>
+									<td>
+										<input  type="number" 
+													  name="mr1"
+													  step="0.1"
+													  value="0"
+														required="true"> &nbsp; x 10<sup>5</sup>
+									</td>
+								</tr>
+								<tr>
+									<td><br>2</td>
+									<td>
+										<input  type="number" 
+													  name="mr2"
+													  step="0.1"
+													  value="0" 
+														required="true"> &nbsp; x 10<sup>5</sup>
+									</td>
+								</tr>
+								<tr>
+									<td><br>3</td>
+									<td>
+										<input  type="number" 
+													  name="mr3"
+													  step="0.1"
+													  value="0"
+														required="true"> &nbsp; x 10<sup>5</sup>
+									</td>
+								</tr>
+								<tr>
+									<td><br>4</td>
+									<td>
+										<input  type="number" 
+													  name="mr4"
+													  step="0.1"
+													  value="0"
+														required="true"> &nbsp; x 10<sup>5</sup>
+									</td>
+								</tr>
+								<tr>
+									<td><br>5</td>
+									<td>
+										<input  type="number" 
+													  name="mr5"
+													  step="0.1"
+													  value="0"
+														required="true"> &nbsp; x 10<sup>5</sup>
+									</td>
+								</tr>
+							</table>
+						</form>
+						<span><b>Note :- </b>Enter the Measured/Calculated values to Verify.</span>
+				</div>
+				<div id="ResultDiv">
+					<h3><u>Result  Table</u></h3>
+
+						<table  id="resultTable" 
+										border="1" 
+										cellpadding="4px">
+							<tr>
+								<th rowspan="2">Sl.No</th>
+								<th colspan="2">Modulus of Rigidity<br><i>( c )</i></th>
+								<th rowspan="2">Percentage Error</th>
+							</tr>
+							<tr>
+								<th>Actual Value</th>
+		            <th>Entered Value</th>
+							</tr>
+							<tr>
+								<td><br>1</td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td><br>2</td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td><br>3</td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td><br>4</td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td><br>5</td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<th colspan="4">
+									
+								</th>
+							</tr>
+						
+						</table>
+				</div>
+				<div id="FinalResultsDiv">
+
+					<h3><u>Result  Table</u></h3>
+
+					<table id="finalResultsTable" border="1" cellpadding="10px">
+						<tr>
+							<th>Trial-No</th>
+							<th>Average Modulus of Rigidity<br><i>( c )</i></th>
+						</tr>
+						<tr>
+							<td>Trial-1</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>Trial-2</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>Trial-3</td>
+							<td></td>
+						</tr>
+					</table>
+					<span id="finalResult" ></span>
+				</div>
+			</center>
+
+				<div id="instructionsDiv">
+					<h3 align="center"><u>Instructions</u></h3>
+						 <ul type="square">
+							 	<li><span>Click <b>LOAD</b> button to start loading the spring for expansion, values are automatically added to the observation table.</span></li>
+								<li><span>Click <b>UNLOAD</b> button to remove load from spring for compression, values are automatically added to the observation table.</span></li>
+								<li>Calculations:</li>
+								<ul>
+									<li><span>After adding all the recordings, now click the <b>NEXT</b> button.</span></li>
+									<li><span>Use the formula to calculate the rigidity modulus.</span></li>
+									<li><span>Enter your calculated values in respective rows to check answers by clicking <b>VERIFY</b> button.</span></li>
+									<li><span>Check your answers and click <b>SHOW RESULT</b> button to view the answer.</span></li>
+								</ul>
+								<li><span>you can use <b>SHOW DATA</b> button whenever you want to view the data.</span></li>
+								<li><span>Use <b>PRINT OBSERVATIONS</b> button to save the experiment.</span></li>
+								<li><span>Use <b>RESET</b> button to start the experiment from beginning.</span></li>
+							 </ul>
+				</div>
+				<div id="popupdiv">
+
+					<div>
+						<!--
+						<script type="text/javascript">
+			        // Popup window code
+			        function newPopup(url) {
+			          popupWindow = window.open(url, 'popUpWindow',
+			            'height=500,width=400,left=10,top=10,resizable=yes,scrollbars=yes,toolbar=no,menubar=no,location=no,directories=no,status=yes'
+			            )
+			        }
+		      	</script>
+						-->
+		      	<button id="instructions" 
+			      					class="button" 
+			      					align="left">
+			      					Show Instructions
+			      	</button>
+
+					</div>
+
+					<div 	id="btnDiv">
+
+						<button id="showData"
+										class = "button" >
+							Show Data
+						</button>
+
+	          <button id="next" 
+	          				class="button"   
+										align="right">
+								Next
+	          </button>
+
+	        </div>
+      	</div>
+      
+        <div id="avgDiv">
+          <span id="Average"></span>
+          <span id="result"></span>
+        </div>
+		</div>
+	</div>
+
+	<footer class="footer" 
+					style="margin-top: 5.6%;  height: 50px;  background-color: white;  color: black;  text-align: center; padding-top: 1.5px" >
+      <h4 >©Virtual Labs IIT Roorkee 2021<!-- Institute Name --> </h4>
+  </footer>
+
+	<script type="text/javascript" src="server.js"></script>
+</body>
+	
+</body>
+</html>

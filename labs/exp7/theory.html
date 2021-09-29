@@ -1,0 +1,237 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title> Virtual Labs </title>
+        <!-- Tell the browser to be responsive to screen width -->
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <!-- Bootstrap 3.3.6 -->
+        <link rel="stylesheet" href="../../bootstrap/css/bootstrap.css">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+        <!-- Theme style -->
+        <link rel="stylesheet" href="../../dist/css/AdminLTE.css">
+        <!-- AdminLTE Skins. Choose a skin from the css/skins folder instead of downloading all of them to reduce the load. -->
+        <link rel="stylesheet" href="../../dist/css/skins/_all-skins.min.css">
+        <script>
+            window.onload = function () {
+                document.getElementById("theory").className = "active treeview";
+            }
+        </script>
+    </head>
+
+    <body class="hold-transition skin-blue sidebar-mini">
+        <!--Navigation Bar-->
+<div class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://iitb.ac.in"><span><img src="images/iitb_logo_30dpi.png"></span></a>
+    </div>
+    <div class="collapse navbar-collapse" id="navbar-ex-collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="active">
+          <a href="http://vlabs.iitb.ac.in/vlabs-dev/">HOME</a>
+        </li>
+        <li class="active">
+          <a href="http://vlabs.iitb.ac.in/vlabs-dev/labs/labs.html">LABS</a>
+        </li>
+        <!--<li class="active">
+          <a href="http://vlabs.iitb.ac.in/vlabs-dev/Syllabus_Matrix/syllabus.html">SYLLABUS</a>
+        </li>
+        <li class="active">
+          <a href="http://vlabs.iitb.ac.in/vlabs-dev/L1-Form/idea.php">CONTRIBUTE</a>
+        </li>
+        <li class="active">
+          <a href="http://vlabs.iitb.ac.in/vlabs-dev/vlab_tool/index.php ">LAB TOOL</a>
+        </li>
+        <li class="active">
+          <a href="http://vlabs.iitb.ac.in/vlabs-dev/wiki/doku.php">WIKI</a>
+        </li> -->
+        <li class="active">
+          <a href="http://vlabs.iitb.ac.in/gitlab/">GITLAB</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+        
+        <div class="wrapper">
+        	<header class="main-header">
+        <!-- Logo -->
+        <a href="../index.html" class="logo">
+        <p align="center" style="font-size:1em;"><b>Mechanics of solid lab</b></p>
+    </a>
+        <!-- Header Navbar: style can be found in header.less -->
+        <nav class="navbar navbar-static-top">
+          <!-- Sidebar toggle button-->
+          <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+        <span class="sr-only">Toggle navigation</span>
+      </a>
+          <section class="content-header">
+            <ol class="breadcrumb">
+              <li>
+                <a href="../index.html"><i class="fa fa-dashboard"></i>Mechanics of solid lab</a>
+              </li>
+              <li>
+                <a href="#">Bending test on HYSD bars</a>
+              </li>
+              <li class="active">Theory</li>
+            </ol>
+          </section>
+        </nav>
+      </header>
+            
+      <!-- Left side column. contains the logo and sidebar -->
+      <aside class="main-sidebar">
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="sidebar">
+          <!-- search form -->
+          <form action="#" method="get" class="sidebar-form">
+            <div class="input-group"></div>
+          </form>
+          <!-- /.sear ch form -->
+          <!-- sidebar menu: : style can be found in sidebar.less -->
+            <ul class="sidebar-menu">
+                <li class="treeview" id="aim">
+                    <a href="index.html">
+                        <i class="fa fa-files-o"></i> <span>Aim</span>
+
+                    </a>
+                </li>
+                <li class="treeview" id="theory">
+                    <a href="theory.html" >
+                        <i class="fa fa-files-o"></i>
+                        <span>Theory</span>
+                    </a>
+                </li>
+             <!--   <li class="treeview" id="numerical">
+                    <a href="numerical.php">
+                        <i class="fa fa-laptop"></i>
+                        <span>Numerical</span>
+                        <span class="pull-right-container">
+                        </span>
+                    </a>
+                </li>
+                <li class="treeview" id="program">
+                    <a href="program.php">
+                        <i class="fa fa-laptop"></i>
+                        <span>Program</span>
+                        <span class="pull-right-container">
+                        </span>
+                    </a>
+                </li> -->
+                <li class="treeview" id="pretest">
+                    <a href="pretest.html">
+                        <i class="fa fa-files-o"></i> <span>Pre Test</span>
+
+                    </a>
+                </li>
+                
+                <li class="treeview" id="procedure">
+                    <a href="procedure.html">
+                        <i class="fa fa-files-o"></i> <span>Procedure</span>
+                    </a>
+                </li>
+                <li class="treeview" id="simulation">
+                    <a href="simulation.html">
+                        <i class="fa fa-laptop"></i>
+                        <span>Simulation</span>
+                        <span class="pull-right-container">
+                        </span>
+                    </a>
+                </li>
+
+              
+                
+                <li class="treeview" id="posttest">
+                    <a href=" posttest.html">
+                        <i class=" fa fa-files-o">
+                    </i>
+                    <span>Post Test</span>
+                    <span class="pull-right-container">
+                    </span>
+                    </a>
+                </li>
+                <li class="treeview" id="ref">
+                    <a href="references.html">
+                        <i class="fa fa-files-o"></i>
+                        <span>References</span>
+                        <span class="pull-right-container">
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </section>
+        <!-- /.sidebar -->
+      </aside>
+
+   
+            <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+                <section class="content-header">
+                <h1 align="center">
+                    Bending test on HYSD bars <!-- Write experiment name here --> 
+                </h1>
+                </section>
+                    <!-- Main content -->
+                    <section class="content">
+                    <h3 style="margin-top:5%"> Theory </h3>
+                    <p style="font-size:130%; margin-top:2%; margin-left:3%">
+						&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; An elastic modulus (also known as modulus of elasticity) is a quantity that measures an object or substance's resistance to being deformed elastically when a stress is applied to it.  
+						If the applied load is small enough, the deformation of any solid body is entirely elastic. An elastically deformed solid will return to its original from as soon as load is removed. However, if the load is too large, the material can be deformed permanently.
+						For most materials, the initial portion of the test will exhibit a linear relationship between the applied force or load and the elongation exhibited by the specimen. Within this linear region the tensile load can be removed from the specimen and the material will return to the exact same condition it had been in prior to the load being applied.
+					</p>
+					<p style="font-size:130%; margin-top:2%; margin-left:3%">
+						&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; At the point when the curve is no longer linear and deviates from the straight-line relationship, some permanent deformation occurs in the specimen. 
+						The point where material shape starts changing is known as Proportional limit, And the point where it losses shape permanently is known as Elastic limit. 
+						
+                    <!--Theory of experiment -->
+                    </p>
+					<center><img src="images/graph.png" ></center>
+					<p style="font-size:130%; margin-top:2%; margin-left:3%">
+						&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; There are two types of bending tests. Three point bending test and four point bending test. In a three point bending test the area of uniform stress is quite small and concentrated under the centre loading point. 
+						In a four point bending test, the area of uniform stress exists between the inner span loading points (typically half the outer span length). In our Experiment, we are following Three point Bending test.</p>
+						<center><img src="images/theory.png" ></center>
+					<p style="font-size:130%; margin-top:2%; margin-left:3%">
+						&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 	
+						At the edge of the concave face the stress will be at its maximum compressive value. At the convex face of the specimen the stress will be at its maximum tensile value. 
+						Most materials fail under tensile stress before they fail under compressive stress, so the maximum tensile stress value that can be sustained before the specimen fails is its flexural strength.  
+						Bend testing provides insight into the modulus of elasticity and the bending strength of a material.</p>
+					<p style="font-size:130%; margin-top:2%; margin-left:3%">
+						&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; From bending equation,</p>
+						<center><img src="images/formula.png" ></center>
+					<p style="font-size:130%; margin-top:2%; margin-left:3%">Where</p>
+					<p style="font-size:130%; margin-top:2%; margin-left:5%">M = moment due to points</p>
+					<p style="font-size:130%; margin-top:2%; margin-left:5%">I = moment of inertia</p>
+					<p style="font-size:130%; margin-top:2%; margin-left:5%">Y = distance from nuetral axis</p>
+					<p style="font-size:130%; margin-top:2%; margin-left:5%">&sigma; = Yield stress</p>
+                </section>
+            <!-- /.content -->
+            </div>
+            <footer class="main-footer">
+                <h4 align="center">Lab contributed by IITR <!-- Institute Name --> </h4>
+            </footer>
+        </div>
+        
+    </body>
+</html>
+
+<!-- ./wrapper -->
+<!-- jQuery 2.2.3 -->
+<script src="../../plugins/jQuery/jquery-2.2.3.min.js"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+<!-- Bootstrap 3.3.6 -->
+<script src="../../bootstrap/js/bootstrap.min.js"></script>
+<!-- Slimscroll -->
+<script src="../../plugins/slimScroll/jquery.slimscroll.min.js"></script>
+<!-- FastClick -->
+<script src="../../plugins/fastclick/fastclick.js"></script>
+<!-- AdminLTE App -->
+<script src="../../dist/js/app.min.js"></script>

@@ -1,0 +1,59 @@
+
+#simulationBoard {
+	display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#svgPanel{
+	 border: 5px solid red;
+}
+
+.button { 
+  background-color: DodgerBlue;
+  color: MidnightBlue;
+  text-decoration: none;
+  font-size: 20px;
+  padding: 20px;
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+h3{
+	margin:1px;
+}
+
+table {
+  text-align: center;
+}
+
+#dlefReading {
+  border-width: 2px;
+  border-style: solid;
+  border-color: red;
+}
+
+#tableDiv {
+  width: min-content;
+}
+
+#averageBtn {
+  float : right;
+}
+
+title{
+
+  background:yellow;
+  padding: 5px;
+  font-size: 20px;
+  color: red;
+  
+}
+
+#Content {
+  display: flex;
+  flex-direction: column;
+}
